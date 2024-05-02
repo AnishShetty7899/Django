@@ -1,0 +1,102 @@
+{% load static %}
+{% static 'img' as baseUrl %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="container vh-100" style="background-color:#dee6ec">
+        <div class=" bg-light mb-5 d-flex justify-content-center">
+            <h3>Hello Admin</h3>
+        </div>
+        <div class="row">
+            <div class="col-3">
+
+               <a class="m-5 btn btn-light btn-outline-primary btn-lg">Home</a><br>
+               <a href="{% url 'admin_1' %}" class="m-5 btn btn-primary btn-outline-light btn-lg">Add apps</a>
+
+            </div>
+
+            <div class="col bg-light">
+                <form class="p-1" action="{% url 'admin_1' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div >
+                        <label class="d-flex justify-content-center" for="file-input">
+                            <img style="width:15%" class="btn" src="{% static 'img/images.png' %}" alt="">
+                        </label>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <input class="m-4 d-flex justify-content-center text-align-center" type="file" id="file-input" name="app_icon">
+                    </div>
+
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col d-flex justify-content-center">
+                            <input class="w-50 m-4 form-control" type="text" placeholder="App Name" name="app_name">
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <input class="w-50 m-4 form-control" type="text" placeholder="App Link" name="app_link">
+                        </div>
+                        <div class="row">
+
+                            <div class="col d-flex justify-content-center">
+                                <select class="w-50 form-select m-4" name="app_category">
+                                    <option selected>App Category</option>
+                                    <option value="1">Social media</option>
+                                    <option value="2">Game</option>
+                                    <option value="3">Education</option>
+                                </select>
+                            </div>
+                            <div class="col d-flex justify-content-center">
+                                <select class="w-50 form-select m-4" name="sub_category">
+                                    <option selected>Sub Category</option>
+                                    <option value="1">Facebook</option>
+                                    <option value="2">Snapchat</option>
+                                    <option value="3">LinkedIn</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="d-flex justify-content-center">
+                        <label class="m-2 btn btn-success btn-lg" >ADD POINTS</label>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <input class="m-2 btn btn-success btn-lg" name="points" type="number" value="100">
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <input class="m-2 btn btn-danger btn-lg" type="submit" value="submit">
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+a {
+            text-decoration: none; /* Remove underline from links */
+        }
+button {
+    display: block;
+    width: 150px;
+    margin: 10px; /* Add margin to create a gap */
+    text-align: center;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+button:first-child {
+    margin-right: 20px; /* Additional margin only on the right side of the first button */
+}
+
+button:hover {
+    background-color: darkblue;
+}

@@ -1,0 +1,72 @@
+{% load static %}
+{% static 'img' as baseUrl %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container vh-100" style="background-color:#dee6ec">
+        <div class=" bg-light mb-5 d-flex justify-content-center">
+            <h1>Hello {{user.first_name}}</h1>
+        </div>
+        <div class="row">
+            <div class="col-3" style="background-color:#dee6ec">
+
+                <div class="row p-5">
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'home' %}">Home</a>
+                    </div>
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'profile' %}">Profile</a>
+                    </div>
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'points' %}">Points</a>
+                    </div>
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'task' %}">Task</a>
+                    </div>
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'logout' %}">Logout</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col bg-light p-5">
+
+
+                <div class="container" style="background-color:#dee6ec">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Tasks Completed</h3>
+                            <br>
+                            {% for i in app_names %}
+                            <h4 >{{i}}</h4>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

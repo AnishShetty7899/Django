@@ -1,0 +1,77 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container vh-100" style="background-color:#dee6ec">
+        <div class=" bg-light mb-5 d-flex justify-content-center">
+            <h1>Hello {{user.first_name}}</h1>
+
+        </div>
+        <div class="row">
+            <div class="col-3" style="background-color:#dee6ec">
+
+                <div class="row p-5">
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'home' %}">Home</a>
+                    </div>
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'profile' %}">Profile</a>
+                    </div>
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'points' %}">Points</a>
+                    </div>
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'task' %}">Task</a>
+                    </div>
+                    <div class="row">
+                        <a class="m-3 btn btn-primary btn-outline-light btn-lg" href="{% url 'logout' %}">Logout</a>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="col bg-light p-5">
+            {% for app in apps %}
+            <div class="container m-2 border border-secondary" style="background-color:#dee6ec">
+            {% if app.app_icon %}
+            <img class="m-3" style="width: 100px; height: 100px;" src="{{ app.app_icon.url }}" alt="">
+            {% else %}
+            <!-- Provide a default icon or placeholder image -->
+            <img class="m-3" style="width: 100px; height: 100px;" src="{% static 'img/images.png' %}" alt="Default Icon">
+        {% endif %}
+        <div class="d-inline-block">
+            <h2 class="d-inline m-5">{{app.app_name}}</h2> <br>
+            <a class="m-5" href="{% url 'App' id=app.id %}">View in Detail ></a>
+        </div>
+        <button class="float-right btn btn-success m-5 float-right" type="submit">{{app.points}} POINTS</button>
+        </div>
+        {% endfor %}
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+
+
+</body>
+
+</html>
